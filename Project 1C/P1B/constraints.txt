@@ -1,0 +1,45 @@
+Three primary key constraints
+Six referential integrity constraints, and
+Three CHECK constraints
+--------------------------------------------------
+
+Every movie has a unique identification number.
+Every movie must have a title.
+Every movie must have a release year.
+
+Every actor has a unique identification number.
+Every actor must have a date of birth.
+Every actor must have a first and last name?
+
+Every director has a unique identification number.
+Every director must have a date of birth.
+Every director must have a first and last name?
+
+Every review must have a movie id (mid).
+Every review must have a rating.
+
+CREATE TABLE Order (
+	OrderNum	INTEGER,
+	OrderTime	TIMESTAMP,
+	ProdNum		INTEGER,
+	Quantity	INTEGER,
+	PRIMARY KEY (OrderNum),
+	FOREIGN KEY (ProdNum) references Product(ProdNum)) ENGINE=INNODB;
+	
+--------------------------------------------------
+
+Primary Key Constraints (3):
+Movie ID
+Actor ID
+Director ID
+
+Referential integrity constraints (6):
+MovieGenre has foreign key mid from Movie
+MovieDirector has foreign key mid from Movie, 
+	did from Director
+MovieActor has foreign key mid from Movie, 
+	aid from Actor
+Review has foreign key mid from Movie
+
+
+CHECK constraints (3):
